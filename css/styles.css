@@ -61,3 +61,29 @@ figure .img{
     height: 100%;
     overflow: hidden;
 }
+
+
+@media screen and (max-width: 720px){
+    .game-info{
+        background-color: #F3f3f5;
+        text-align: center;
+        margin: auto;
+        max-width: 300px;
+        padding: 10px;
+        font-size: small;
+        box-shadow: 3px 3px 16px rgba(0,0,0, 0.1);
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .game-info h2 {
+        font-size: 15px;
+    }
+    
+    h1 {
+        font-size: 20px;
+        text-align: center;
+        margin: 2rem;
+        text-shadow: 2px 2px 2px rgb(0,0,0, .46);
+    }
+}
