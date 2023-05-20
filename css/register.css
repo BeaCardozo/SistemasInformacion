@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: #Ffebd1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+}
+
+.form-container{
+    max-width: 700px;
+    min-width: 175px;
+    margin: 20px;
+    padding: 100px;
+    background: white;
+    box-shadow: 3px 3px 16px rgba(0,0,0, 0.6);
+    border-radius: 10px;
+}
+
+form h1{ 
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    padding: auto;
+}
+
+form h2{ 
+    font-size: 20px;
+    font-weight: 200;
+}
+
+form label{
+    margin-bottom: 35px;
+}
+
+.name-input{
+    padding: 10px;
+    margin: 10px;
+    font-size: 15px;
+    width: 500px;
+}
+
+form button {
+    margin: auto;
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+    width: 50%;
+    cursor: pointer;
+    background-color: orange;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: lightcoral;
+}
+
+@media screen and (max-width: 720px){
+    form h1{ 
+        font-size: 20px;
+        font-weight: 800;
+        margin-bottom: 50px;
+        padding: auto;
+    }
+
+    .form-container{
+        width: 200px;
+        margin: 20px;
+        padding: 30px;
+        background: white;
+        box-shadow: 3px 3px 16px rgba(0,0,0, 0.6);
+        border-radius: 10px;
+    }
+
+    .name-input{
+        padding: 10px;
+        margin: 10px;
+        font-size: 15px;
+        width: 100px;
+    }
+
+    form button {
+        margin: auto;
+        color: white;
+        font-size: 12px;
+        font-weight: 800;
+        width: 70%;
+        cursor: pointer;
+        background-color: orange;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+}
