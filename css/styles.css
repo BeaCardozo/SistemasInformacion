@@ -53,6 +53,23 @@ figure.selected{
     transform: perspective(600px) rotateY(180deg);
 }
 
+
+figure::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    transition: 0.3s all ease;
+}
+
+figure:hover:after {
+    background: rgba(255, 255, 255, 0.137);
+}
+
 figure .img{
     position: absolute;
     top: 0;

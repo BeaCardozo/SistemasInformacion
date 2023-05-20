@@ -11,7 +11,10 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+}
 
+.sweet-warning button{
+    background: orange;
 }
 
 .form-container{
@@ -48,7 +51,6 @@ form label{
 }
 
 form button {
-    margin: auto;
     color: white;
     font-size: 12px;
     font-weight: 800;
@@ -56,12 +58,13 @@ form button {
     cursor: pointer;
     background-color: orange;
     border: none;
+    margin: 10% 25%;
     padding: 10px 20px;
     border-radius: 5px;
 }
 
 form button:hover {
-    background-color: lightcoral;
+    background-color: rgb(120, 203, 242);
 }
 
 @media screen and (max-width: 720px){
@@ -94,7 +97,7 @@ form button:hover {
     }
 
     form button {
-        margin: auto;
+        margin: 5%;
         color: white;
         font-size: 12px;
         font-weight: 800;

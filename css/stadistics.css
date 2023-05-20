@@ -9,11 +9,36 @@ body{
     box-sizing: border-box;
 }
 
+h1 {
+    text-align: center;
+    margin: 2rem;
+    text-shadow: 2px 2px 2px rgb(0,0,0, .46);
+}
 
 main {
     background-color: white;
     max-width: 700px;
     margin: auto;
-    grid-gap: 20px;
-    padding: 20px;
+    padding: 50px;
+    box-shadow: 3px 3px 16px rgba(0,0,0, 0.4);
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: center;
+    margin: auto;
+	vertical-align: middle;
+  }
+
+thead {
+    background-color: orange;
+    color: white;
+}
+  
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+  }
