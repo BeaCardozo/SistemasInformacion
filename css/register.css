@@ -88,6 +88,11 @@ form button:hover {
         width: 100px;
     }
 
+    form h2{ 
+        font-size: 15px;
+        font-weight: 200;
+    }
+
     form button {
         margin: auto;
         color: white;
