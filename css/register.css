@@ -13,10 +13,6 @@ body{
     min-height: 100vh;
 }
 
-.sweet-warning button{
-    background: orange;
-}
-
 .form-container{
     max-width: 700px;
     min-width: 175px;
@@ -60,7 +56,7 @@ form button {
     border: none;
     margin: 10% 25%;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 5px
 }
 
 form button:hover {
@@ -69,14 +65,14 @@ form button:hover {
 
 @media screen and (max-width: 720px){
     form h1{ 
-        font-size: 20px;
+        font-size: 25px;
         font-weight: 800;
         margin-bottom: 50px;
         padding: auto;
     }
 
     .form-container{
-        width: 200px;
+        width: 300px;
         margin: 20px;
         padding: 30px;
         background: white;
@@ -88,7 +84,7 @@ form button:hover {
         padding: 10px;
         margin: 10px;
         font-size: 15px;
-        width: 100px;
+        width: 150px;
     }
 
     form h2{ 

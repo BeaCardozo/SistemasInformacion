@@ -1,6 +1,10 @@
 body{
     font-family: 'Poppins', sans-serif;
     background: #Ffebd1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 *{
@@ -15,14 +19,19 @@ h1 {
     text-shadow: 2px 2px 2px rgb(0,0,0, .46);
 }
 
+p {
+    margin: 30px;
+    padding: auto;
+}
+
 main {
-    background-color: white;
     max-width: 700px;
-    margin: auto;
-    padding: 50px;
-    box-shadow: 3px 3px 16px rgba(0,0,0, 0.4);
+    min-width: 175px;
+    margin: 20px;
+    padding: 100px;
+    background: white;
+    box-shadow: 3px 3px 16px rgba(0,0,0, 0.6);
     border-radius: 10px;
-    margin-bottom: 30px;
 }
 
 table {
@@ -41,4 +50,70 @@ thead {
 th, td {
     border: 1px solid black;
     padding: 8px;
-  }
+}
+
+.button {
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    width: 100px;
+    cursor: pointer;
+    background-color: orange;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: rgb(120, 203, 242);
+}
+
+
+@media screen and (max-width: 720px){
+    main h1{ 
+        font-size: 15px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        padding: auto;
+    }
+
+    main {
+        width: 200px;
+        margin: 20px;
+        padding: 30px;
+        background: white;
+        box-shadow: 3px 3px 16px rgba(0,0,0, 0.6);
+        border-radius: 10px;
+    }
+
+   table{
+        border-collapse: collapse;
+        border: 1px solid black;
+        text-align: center;
+        font-size: 8px;
+        margin: auto;
+        justify-content: center;
+        vertical-align: middle;
+        width: 80px;
+    }
+
+    p {
+        margin: 15px;
+        font-size: 10px;
+        padding: auto;
+    }
+
+    .button {
+        margin: 5%;
+        color: white;
+        font-size: 12px;
+        font-weight: 800;
+        width: 70%;
+        cursor: pointer;
+        background-color: orange;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+}
