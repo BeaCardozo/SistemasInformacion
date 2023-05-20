@@ -145,7 +145,7 @@ class Game {
         this.cardTwo = null;
         this.GameStart = true;
         if (this.maxPairNumber == this.foundPairs) {
-            const finalPoints = this.userPoints*(160/180);
+            const finalPoints = this.userPoints*(165/180);
             sessionStorage.setItem("score", finalPoints);
             this.storageUserScore(finalPoints);
             swal({title: "¡Ganaste!", text: "Puntaje Obtenido: " + finalPoints, button: "Ver estadísticas", closeOnClickOutside: false}).then(willRedirect => {
