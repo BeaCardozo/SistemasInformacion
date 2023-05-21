@@ -6,6 +6,7 @@ var validation = false;
 var win = false;
 var restTiming = 0;
 
+//Función para validar lo introducido en el campo de nombre
 const validateInfo = () =>{
     if (!username.value){
         swal("Por favor, ingresa tu nombre!");
@@ -28,6 +29,7 @@ const validateInfo = () =>{
     }
 }
 
+//Al presionar el botón
 button.addEventListener('click', (e) => {
     e.preventDefault()
     validateInfo()
@@ -36,6 +38,7 @@ button.addEventListener('click', (e) => {
         new Game();
         displayTime(totalTiming);
 
+        //Temporizador
         const countDown = setInterval(() => {
             totalTiming--;
             displayTime(totalTiming);
@@ -67,11 +70,9 @@ button.addEventListener('click', (e) => {
     }
 );
 
-//Funcionamiento del temporizador
+//Datos para el temporizador
     let totalTiming = 180; 
     const timerTitle = document.getElementById("Timer");
-
-    
 
 //Clase Game: funcionamiento del juego de memoria
 class Game {
@@ -189,7 +190,6 @@ class Game {
         this.cardTwo = null;
         this.GameStart = true;
         if (this.maxPairNumber == this.foundPairs) {
-            console.log(totalTiming);
             const finalPoints = (this.userPoints*(totalTiming/180)).toFixed(2);
             sessionStorage.setItem("score", finalPoints);
             this.storageUserScore(finalPoints);
@@ -216,3 +216,5 @@ class Game {
         document.getElementById("stadistics").style.display = 'none';
     }
 }
+
+
