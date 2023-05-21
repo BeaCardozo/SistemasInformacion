@@ -1,23 +1,30 @@
-const keyValue = {}; //Diccionario para almacenar de forma ordenada los valores del localstorage
+var keyValue = {}; //Diccionario para almacenar de forma ordenada los valores del localstorage
 
+//Se recorre el LocalStorage
 function forEachKey() {
     for (let i = 0; i < localStorage.length; i++) {
       keyValue[localStorage.key(i)] = localStorage.getItem(localStorage.key(i));
     }
   }
+
+//Se ordena el contenido del diccionario keyValue
+function orderScores(){
+    var result = Object.keys(keyValue).sort(function(a, b) {
+      return keyValue[b] - keyValue[a];
+    })
+    return result;
+}
 forEachKey();
-const entries = Object.entries(keyValue);
-entries.sort();
-
-
-for (var i = 0; i < localStorage.length; i += 1) {        
-    let key = entries[i];
+orderScores();
+//Se colocan dentro del html
+for (var i = 0; i < orderScores().length; i++ ) {        
+    let key = orderScores()[i];
     let item = "player"+(i+1);
     const player = document.getElementById(item);
-    player.innerHTML = key[0];
+    player.innerHTML = orderScores()[i];
     let item2 = "score"+(i+1);
     const score = document.getElementById(item2);
-    score.innerHTML = key[1]; 
+    score.innerHTML = localStorage.getItem(key); 
 }
 
 //Mostrar puntuación del último jugador

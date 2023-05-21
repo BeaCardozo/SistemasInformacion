@@ -3,6 +3,8 @@ const button = document.getElementById('button');
 const maxLength = 25;
 const pattern = new RegExp('^[A-Z]+$', 'i');
 var validation = false;
+var win = false;
+var restTiming = 0;
 
 const validateInfo = () =>{
     if (!username.value){
@@ -37,11 +39,14 @@ button.addEventListener('click', (e) => {
         const countDown = setInterval(() => {
             totalTiming--;
             displayTime(totalTiming);
-            var restTiming = totalTiming;
             if (totalTiming == 0 || totalTiming < 1) {
                 endCount();
                 document.getElementById("game").style.display = 'none';
                 document.getElementById("stadistics").style.display = 'block';
+                clearInterval(countDown);
+            }
+            if(win == true){
+                restTiming = totalTiming;
                 clearInterval(countDown);
             }
             }, 1000);
@@ -63,7 +68,7 @@ button.addEventListener('click', (e) => {
 );
 
 //Funcionamiento del temporizador
-    let totalTiming = 10; 
+    let totalTiming = 180; 
     const timerTitle = document.getElementById("Timer");
 
     
@@ -184,9 +189,11 @@ class Game {
         this.cardTwo = null;
         this.GameStart = true;
         if (this.maxPairNumber == this.foundPairs) {
-            const finalPoints = this.userPoints*(120/180);
+            console.log(totalTiming);
+            const finalPoints = (this.userPoints*(totalTiming/180)).toFixed(2);
             sessionStorage.setItem("score", finalPoints);
             this.storageUserScore(finalPoints);
+            win = true;
             swal({title: "¡Ganaste!", text: "Puntaje Obtenido: " + finalPoints, button: "Ver estadísticas", closeOnClickOutside: false}); 
             this.hideGame();
             this.showStadistics();
