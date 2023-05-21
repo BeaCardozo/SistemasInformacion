@@ -3,6 +3,7 @@ const button = document.getElementById('button');
 const maxLength = 25;
 const pattern = new RegExp('^[A-Z]+$', 'i');
 
+//Validar información introducida en el campo de nombre
 const validateInfo = () =>{
     if (!username.value){
         swal("Por favor, ingresa tu nombre!");
@@ -17,15 +18,13 @@ const validateInfo = () =>{
                     username: username.value
                 }
                 sessionStorage.setItem("username", info.username);
-                window.location.href = "./index.html"
+                document.getElementById("form-container").style.display = 'none';
             }
         }
     }
 }
 
-
 button.addEventListener('click', (e) => {
     e.preventDefault()
     validateInfo()
-    //localStorage.clear();
 });

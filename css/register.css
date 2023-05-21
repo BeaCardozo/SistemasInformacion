@@ -1,19 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body{
-    font-family: 'Poppins', sans-serif;
-    background: #Ffebd1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-.form-container{
+.form-container {
     max-width: 700px;
     min-width: 175px;
     margin: 20px;

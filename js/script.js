@@ -1,34 +1,72 @@
-    
-    //Funcionamiento del temporizador
-    let totalTiming = 180; 
+const username = document.getElementById('name');
+const button = document.getElementById('button');
+const maxLength = 25;
+const pattern = new RegExp('^[A-Z]+$', 'i');
+var validation = false;
+
+const validateInfo = () =>{
+    if (!username.value){
+        swal("Por favor, ingresa tu nombre!");
+        validation = false;
+    } else {
+        if (username.value.length > maxLength){
+            swal("Solo se permiten 25 carácteres");
+            validation = false;
+        } else {
+            if(!pattern.test(username.value)){
+                swal("Por favor, ingresa solo letras...");
+            } else {
+                const info = {
+                    username: username.value
+                }
+                sessionStorage.setItem("username", info.username);
+                validation = true;
+            }
+        }
+    }
+}
+
+button.addEventListener('click', (e) => {
+    e.preventDefault()
+    validateInfo()
+    if(validation == true){
+        document.getElementById("form-container").style.display = 'none';
+        new Game();
+        displayTime(totalTiming);
+
+        const countDown = setInterval(() => {
+            totalTiming--;
+            displayTime(totalTiming);
+            var restTiming = totalTiming;
+            if (totalTiming == 0 || totalTiming < 1) {
+                endCount();
+                document.getElementById("game").style.display = 'none';
+                document.getElementById("stadistics").style.display = 'block';
+                clearInterval(countDown);
+            }
+            }, 1000);
+
+        function displayTime(second) {
+        const min = Math.floor(second / 60);
+        const sec = Math.floor(second % 60);
+        timerTitle.innerHTML = `
+        ${min < 10 ? "0" : ""}${min}:${sec < 10 ? "0" : ""}${sec}
+        `;
+        }
+
+        function endCount() {
+            this.GameStart = false;
+            sessionStorage.setItem("score", 0);
+            swal({title: "¡Perdiste!", text: "Se acabo el tiempo. Puntaje Obtenido: 0pts.", button: "Ver estadísticas", closeOnClickOutside: false})};
+        }
+    }
+);
+
+//Funcionamiento del temporizador
+    let totalTiming = 10; 
     const timerTitle = document.getElementById("Timer");
-    displayTime(totalTiming);
 
-    const countDown = setInterval(() => {
-        totalTiming--;
-    displayTime(totalTiming);
-    if (totalTiming == 0 || totalTiming < 1) {
-        endCount();
-        clearInterval(countDown);
-    }
-    }, 1000);
-
-    function displayTime(second) {
-    const min = Math.floor(second / 60);
-    const sec = Math.floor(second % 60);
-    timerTitle.innerHTML = `
-    ${min < 10 ? "0" : ""}${min}:${sec < 10 ? "0" : ""}${sec}
-    `;
-    }
-
-    function endCount() {
-        this.GameStart = false;
-        sessionStorage.setItem("score", 0);
-        swal({title: "¡Perdiste!", text: "Se acabo el tiempo. Puntaje Obtenido: 0pts.", button: "Ver estadísticas", closeOnClickOutside: false}).then(willRedirect => {
-        if(willRedirect){
-            window.location.href = "./stadistics.html"
-        } });
-    }
+    
 
 //Clase Game: funcionamiento del juego de memoria
 class Game {
@@ -45,13 +83,14 @@ class Game {
         this.availableCards = [1, 2, 3, 4, 5, 6, 7, 8];
         this.order = [];
         this.maxPairNumber = this.availableCards.length;
-        this.cards = Array.from(document.querySelectorAll('.game-container figure'));
+        this.cards = Array.from(document.querySelectorAll('.game .game-container figure'));
         const playersInformation = {};
         this.game();
     }
 
     //Función game(): Declara la cantidad de parejas encontradas y los puntos iniciales del usuario. Invoca funciones para ordenar aleatoriamente las cartas, colocar las imagenes según el orden y mostrarlas incialmente.
     game() {
+        document.getElementById("game").style.display = 'grid';
         this.foundPairs = 0;
         this.userPoints = 0;
         this.setNewOrder();
@@ -145,21 +184,28 @@ class Game {
         this.cardTwo = null;
         this.GameStart = true;
         if (this.maxPairNumber == this.foundPairs) {
-            const finalPoints = this.userPoints*(165/180);
+            const finalPoints = this.userPoints*(120/180);
             sessionStorage.setItem("score", finalPoints);
             this.storageUserScore(finalPoints);
-            swal({title: "¡Ganaste!", text: "Puntaje Obtenido: " + finalPoints, button: "Ver estadísticas", closeOnClickOutside: false}).then(willRedirect => {
-                if(willRedirect){
-                    window.location.href = "./stadistics.html"
-                } });
+            swal({title: "¡Ganaste!", text: "Puntaje Obtenido: " + finalPoints, button: "Ver estadísticas", closeOnClickOutside: false}); 
+            this.hideGame();
+            this.showStadistics();
         }
     }
 
     storageUserScore(finalPoints){
         localStorage.setItem(sessionStorage.getItem("username"), finalPoints);
     }
-}
 
-document.addEventListener("DOMContentLoaded", () =>{
-    new Game();
-});
+    hideGame(){
+        document.getElementById("game").style.display = 'none';
+    }
+
+    showStadistics(){
+        document.getElementById("stadistics").style.display = 'block';
+    }
+
+    hideStadistics(){
+        document.getElementById("stadistics").style.display = 'none';
+    }
+}

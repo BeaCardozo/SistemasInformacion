@@ -20,7 +20,10 @@ for (var i = 0; i < localStorage.length; i += 1) {
     score.innerHTML = key[1]; 
 }
 
-
 //Mostrar puntuación del último jugador
 const currScoreP = document.getElementById("currScore");
 currScoreP.innerHTML = "Tu puntuación: " + sessionStorage.getItem("score") + "pts.";
+
+linkBtn.addEventListener('click', (e) => {
+  window.location.reload();
+});

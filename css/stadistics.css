@@ -1,10 +1,16 @@
-body{
+.stadistics{
+    display: none;
     font-family: 'Poppins', sans-serif;
     background: #Ffebd1;
-    display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    max-width: 700px;
+    min-width: 175px;
+    margin: 20px;
+    padding: 100px;
+    background: white;
+    box-shadow: 3px 3px 16px rgba(0,0,0, 0.6);
+    border-radius: 10px;
 }
 
 *{
@@ -22,16 +28,6 @@ h1 {
 p {
     margin: 30px;
     padding: auto;
-}
-
-main {
-    max-width: 700px;
-    min-width: 175px;
-    margin: 20px;
-    padding: 100px;
-    background: white;
-    box-shadow: 3px 3px 16px rgba(0,0,0, 0.6);
-    border-radius: 10px;
 }
 
 table {
@@ -52,7 +48,7 @@ th, td {
     padding: 8px;
 }
 
-.button {
+.linkBtn {
     color: white;
     font-size: 12px;
     text-decoration: none;
@@ -65,7 +61,7 @@ th, td {
     border-radius: 5px;
 }
 
-.button:hover {
+.linkBtn:hover {
     background-color: rgb(120, 203, 242);
 }
 
@@ -76,15 +72,6 @@ th, td {
         font-weight: 800;
         margin-bottom: 10px;
         padding: auto;
-    }
-
-    main {
-        width: 200px;
-        margin: 20px;
-        padding: 30px;
-        background: white;
-        box-shadow: 3px 3px 16px rgba(0,0,0, 0.6);
-        border-radius: 10px;
     }
 
    table{
@@ -104,7 +91,7 @@ th, td {
         padding: auto;
     }
 
-    .button {
+    .linkBtn {
         margin: 5%;
         color: white;
         font-size: 12px;
